@@ -1,0 +1,663 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7160C7561F8FA4F300506FE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C7551F8FA4F300506FE1 /* AppDelegate.swift */; };
+		7160C75B1F8FA4F300506FE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7160C7591F8FA4F300506FE1 /* Main.storyboard */; };
+		7160C75E1F8FA4F300506FE1 /* Gister.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7160C75C1F8FA4F300506FE1 /* Gister.xcdatamodeld */; };
+		7160C7601F8FA4F300506FE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7160C75F1F8FA4F300506FE1 /* Assets.xcassets */; };
+		7160C7631F8FA4F300506FE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7160C7611F8FA4F300506FE1 /* LaunchScreen.storyboard */; };
+		7160C76E1F8FA4F300506FE1 /* GisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C76D1F8FA4F300506FE1 /* GisterTests.swift */; };
+		7160C7791F8FA4F300506FE1 /* GisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C7781F8FA4F300506FE1 /* GisterUITests.swift */; };
+		7160C78E1F8FA62800506FE1 /* ListGistsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C7881F8FA62800506FE1 /* ListGistsInteractor.swift */; };
+		7160C78F1F8FA62800506FE1 /* ListGistsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C7891F8FA62800506FE1 /* ListGistsModels.swift */; };
+		7160C7901F8FA62800506FE1 /* ListGistsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C78A1F8FA62800506FE1 /* ListGistsPresenter.swift */; };
+		7160C7911F8FA62800506FE1 /* ListGistsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C78B1F8FA62800506FE1 /* ListGistsRouter.swift */; };
+		7160C7921F8FA62800506FE1 /* ListGistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C78C1F8FA62800506FE1 /* ListGistsViewController.swift */; };
+		7160C7931F8FA62800506FE1 /* ListGistsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C78D1F8FA62800506FE1 /* ListGistsWorker.swift */; };
+		7160C79A1F8FA68800506FE1 /* ListGistsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C7961F8FA68800506FE1 /* ListGistsInteractorTests.swift */; };
+		7160C79B1F8FA68800506FE1 /* ListGistsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C7971F8FA68800506FE1 /* ListGistsPresenterTests.swift */; };
+		7160C79C1F8FA68800506FE1 /* ListGistsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C7981F8FA68800506FE1 /* ListGistsViewControllerTests.swift */; };
+		7160C79D1F8FA68800506FE1 /* ListGistsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C7991F8FA68800506FE1 /* ListGistsWorkerTests.swift */; };
+		7160C7A01F8FA73600506FE1 /* GistAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C79F1F8FA73600506FE1 /* GistAPI.swift */; };
+		7160C7A51F90017D00506FE1 /* GistAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160C7A41F90017D00506FE1 /* GistAPITest.swift */; };
+		71C590591F9B08A50098542B /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C590581F9B08A50098542B /* Gist.swift */; };
+		71D5A6BE1F9AC1B500BFA7A7 /* Gist.json in Resources */ = {isa = PBXBuildFile; fileRef = 71D5A6BD1F9AC1B500BFA7A7 /* Gist.json */; };
+		71D5A6C01F9AC1F500BFA7A7 /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D5A6BF1F9AC1F500BFA7A7 /* Seeds.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7160C76A1F8FA4F300506FE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7160C74A1F8FA4F300506FE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7160C7511F8FA4F300506FE1;
+			remoteInfo = Gister;
+		};
+		7160C7751F8FA4F300506FE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7160C74A1F8FA4F300506FE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7160C7511F8FA4F300506FE1;
+			remoteInfo = Gister;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7160C7521F8FA4F300506FE1 /* Gister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gister.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7160C7551F8FA4F300506FE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7160C75A1F8FA4F300506FE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7160C75D1F8FA4F300506FE1 /* Gister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gister.xcdatamodel; sourceTree = "<group>"; };
+		7160C75F1F8FA4F300506FE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7160C7621F8FA4F300506FE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7160C7641F8FA4F300506FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7160C7691F8FA4F300506FE1 /* GisterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GisterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7160C76D1F8FA4F300506FE1 /* GisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GisterTests.swift; sourceTree = "<group>"; };
+		7160C76F1F8FA4F300506FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7160C7741F8FA4F300506FE1 /* GisterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GisterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7160C7781F8FA4F300506FE1 /* GisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GisterUITests.swift; sourceTree = "<group>"; };
+		7160C77A1F8FA4F300506FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7160C7881F8FA62800506FE1 /* ListGistsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGistsInteractor.swift; path = Scenes/ListGists/ListGistsInteractor.swift; sourceTree = "<group>"; };
+		7160C7891F8FA62800506FE1 /* ListGistsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGistsModels.swift; path = Scenes/ListGists/ListGistsModels.swift; sourceTree = "<group>"; };
+		7160C78A1F8FA62800506FE1 /* ListGistsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGistsPresenter.swift; path = Scenes/ListGists/ListGistsPresenter.swift; sourceTree = "<group>"; };
+		7160C78B1F8FA62800506FE1 /* ListGistsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGistsRouter.swift; path = Scenes/ListGists/ListGistsRouter.swift; sourceTree = "<group>"; };
+		7160C78C1F8FA62800506FE1 /* ListGistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGistsViewController.swift; path = Scenes/ListGists/ListGistsViewController.swift; sourceTree = "<group>"; };
+		7160C78D1F8FA62800506FE1 /* ListGistsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGistsWorker.swift; path = Scenes/ListGists/ListGistsWorker.swift; sourceTree = "<group>"; };
+		7160C7961F8FA68800506FE1 /* ListGistsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGistsInteractorTests.swift; path = Scenes/ListGists/ListGistsInteractorTests.swift; sourceTree = "<group>"; };
+		7160C7971F8FA68800506FE1 /* ListGistsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGistsPresenterTests.swift; path = Scenes/ListGists/ListGistsPresenterTests.swift; sourceTree = "<group>"; };
+		7160C7981F8FA68800506FE1 /* ListGistsViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGistsViewControllerTests.swift; path = Scenes/ListGists/ListGistsViewControllerTests.swift; sourceTree = "<group>"; };
+		7160C7991F8FA68800506FE1 /* ListGistsWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGistsWorkerTests.swift; path = Scenes/ListGists/ListGistsWorkerTests.swift; sourceTree = "<group>"; };
+		7160C79F1F8FA73600506FE1 /* GistAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GistAPI.swift; path = APIs/GistAPI.swift; sourceTree = "<group>"; };
+		7160C7A41F90017D00506FE1 /* GistAPITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GistAPITest.swift; path = APIs/GistAPITest.swift; sourceTree = "<group>"; };
+		71C590581F9B08A50098542B /* Gist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gist.swift; path = APIs/Gist.swift; sourceTree = "<group>"; };
+		71D5A6BD1F9AC1B500BFA7A7 /* Gist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Gist.json; sourceTree = "<group>"; };
+		71D5A6BF1F9AC1F500BFA7A7 /* Seeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7160C74F1F8FA4F300506FE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7160C7661F8FA4F300506FE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7160C7711F8FA4F300506FE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7160C7491F8FA4F300506FE1 = {
+			isa = PBXGroup;
+			children = (
+				7160C7541F8FA4F300506FE1 /* Gister */,
+				7160C76C1F8FA4F300506FE1 /* GisterTests */,
+				7160C7771F8FA4F300506FE1 /* GisterUITests */,
+				7160C7531F8FA4F300506FE1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7160C7531F8FA4F300506FE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7160C7521F8FA4F300506FE1 /* Gister.app */,
+				7160C7691F8FA4F300506FE1 /* GisterTests.xctest */,
+				7160C7741F8FA4F300506FE1 /* GisterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7160C7541F8FA4F300506FE1 /* Gister */ = {
+			isa = PBXGroup;
+			children = (
+				7160C79E1F8FA6EA00506FE1 /* APIs */,
+				7160C7861F8FA60400506FE1 /* Scenes */,
+				7160C7551F8FA4F300506FE1 /* AppDelegate.swift */,
+				7160C7591F8FA4F300506FE1 /* Main.storyboard */,
+				7160C75F1F8FA4F300506FE1 /* Assets.xcassets */,
+				7160C7611F8FA4F300506FE1 /* LaunchScreen.storyboard */,
+				7160C7641F8FA4F300506FE1 /* Info.plist */,
+				7160C75C1F8FA4F300506FE1 /* Gister.xcdatamodeld */,
+			);
+			path = Gister;
+			sourceTree = "<group>";
+		};
+		7160C76C1F8FA4F300506FE1 /* GisterTests */ = {
+			isa = PBXGroup;
+			children = (
+				7160C7A11F90014600506FE1 /* APIs */,
+				7160C7941F8FA66D00506FE1 /* Scenes */,
+				7160C76D1F8FA4F300506FE1 /* GisterTests.swift */,
+				71D5A6BF1F9AC1F500BFA7A7 /* Seeds.swift */,
+				71D5A6BD1F9AC1B500BFA7A7 /* Gist.json */,
+				7160C76F1F8FA4F300506FE1 /* Info.plist */,
+			);
+			path = GisterTests;
+			sourceTree = "<group>";
+		};
+		7160C7771F8FA4F300506FE1 /* GisterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7160C7781F8FA4F300506FE1 /* GisterUITests.swift */,
+				7160C77A1F8FA4F300506FE1 /* Info.plist */,
+			);
+			path = GisterUITests;
+			sourceTree = "<group>";
+		};
+		7160C7861F8FA60400506FE1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7160C7871F8FA60600506FE1 /* ListGists */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		7160C7871F8FA60600506FE1 /* ListGists */ = {
+			isa = PBXGroup;
+			children = (
+				7160C7881F8FA62800506FE1 /* ListGistsInteractor.swift */,
+				7160C7891F8FA62800506FE1 /* ListGistsModels.swift */,
+				7160C78A1F8FA62800506FE1 /* ListGistsPresenter.swift */,
+				7160C78B1F8FA62800506FE1 /* ListGistsRouter.swift */,
+				7160C78C1F8FA62800506FE1 /* ListGistsViewController.swift */,
+				7160C78D1F8FA62800506FE1 /* ListGistsWorker.swift */,
+			);
+			name = ListGists;
+			sourceTree = "<group>";
+		};
+		7160C7941F8FA66D00506FE1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7160C7951F8FA66D00506FE1 /* ListGists */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		7160C7951F8FA66D00506FE1 /* ListGists */ = {
+			isa = PBXGroup;
+			children = (
+				7160C7961F8FA68800506FE1 /* ListGistsInteractorTests.swift */,
+				7160C7971F8FA68800506FE1 /* ListGistsPresenterTests.swift */,
+				7160C7981F8FA68800506FE1 /* ListGistsViewControllerTests.swift */,
+				7160C7991F8FA68800506FE1 /* ListGistsWorkerTests.swift */,
+			);
+			name = ListGists;
+			sourceTree = "<group>";
+		};
+		7160C79E1F8FA6EA00506FE1 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				7160C79F1F8FA73600506FE1 /* GistAPI.swift */,
+				71C590581F9B08A50098542B /* Gist.swift */,
+			);
+			name = APIs;
+			sourceTree = "<group>";
+		};
+		7160C7A11F90014600506FE1 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				7160C7A41F90017D00506FE1 /* GistAPITest.swift */,
+			);
+			name = APIs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7160C7511F8FA4F300506FE1 /* Gister */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7160C77D1F8FA4F300506FE1 /* Build configuration list for PBXNativeTarget "Gister" */;
+			buildPhases = (
+				7160C74E1F8FA4F300506FE1 /* Sources */,
+				7160C74F1F8FA4F300506FE1 /* Frameworks */,
+				7160C7501F8FA4F300506FE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gister;
+			productName = Gister;
+			productReference = 7160C7521F8FA4F300506FE1 /* Gister.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7160C7681F8FA4F300506FE1 /* GisterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7160C7801F8FA4F300506FE1 /* Build configuration list for PBXNativeTarget "GisterTests" */;
+			buildPhases = (
+				7160C7651F8FA4F300506FE1 /* Sources */,
+				7160C7661F8FA4F300506FE1 /* Frameworks */,
+				7160C7671F8FA4F300506FE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7160C76B1F8FA4F300506FE1 /* PBXTargetDependency */,
+			);
+			name = GisterTests;
+			productName = GisterTests;
+			productReference = 7160C7691F8FA4F300506FE1 /* GisterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7160C7731F8FA4F300506FE1 /* GisterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7160C7831F8FA4F300506FE1 /* Build configuration list for PBXNativeTarget "GisterUITests" */;
+			buildPhases = (
+				7160C7701F8FA4F300506FE1 /* Sources */,
+				7160C7711F8FA4F300506FE1 /* Frameworks */,
+				7160C7721F8FA4F300506FE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7160C7761F8FA4F300506FE1 /* PBXTargetDependency */,
+			);
+			name = GisterUITests;
+			productName = GisterUITests;
+			productReference = 7160C7741F8FA4F300506FE1 /* GisterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7160C74A1F8FA4F300506FE1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Clean Swift LLC";
+				TargetAttributes = {
+					7160C7511F8FA4F300506FE1 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 5LBZDN8XB8;
+						ProvisioningStyle = Automatic;
+					};
+					7160C7681F8FA4F300506FE1 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 5LBZDN8XB8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7160C7511F8FA4F300506FE1;
+					};
+					7160C7731F8FA4F300506FE1 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 5LBZDN8XB8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7160C7511F8FA4F300506FE1;
+					};
+				};
+			};
+			buildConfigurationList = 7160C74D1F8FA4F300506FE1 /* Build configuration list for PBXProject "Gister" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7160C7491F8FA4F300506FE1;
+			productRefGroup = 7160C7531F8FA4F300506FE1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7160C7511F8FA4F300506FE1 /* Gister */,
+				7160C7681F8FA4F300506FE1 /* GisterTests */,
+				7160C7731F8FA4F300506FE1 /* GisterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7160C7501F8FA4F300506FE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7160C7631F8FA4F300506FE1 /* LaunchScreen.storyboard in Resources */,
+				7160C7601F8FA4F300506FE1 /* Assets.xcassets in Resources */,
+				7160C75B1F8FA4F300506FE1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7160C7671F8FA4F300506FE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71D5A6BE1F9AC1B500BFA7A7 /* Gist.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7160C7721F8FA4F300506FE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7160C74E1F8FA4F300506FE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71C590591F9B08A50098542B /* Gist.swift in Sources */,
+				7160C7931F8FA62800506FE1 /* ListGistsWorker.swift in Sources */,
+				7160C78E1F8FA62800506FE1 /* ListGistsInteractor.swift in Sources */,
+				7160C7A01F8FA73600506FE1 /* GistAPI.swift in Sources */,
+				7160C7901F8FA62800506FE1 /* ListGistsPresenter.swift in Sources */,
+				7160C7561F8FA4F300506FE1 /* AppDelegate.swift in Sources */,
+				7160C78F1F8FA62800506FE1 /* ListGistsModels.swift in Sources */,
+				7160C75E1F8FA4F300506FE1 /* Gister.xcdatamodeld in Sources */,
+				7160C7921F8FA62800506FE1 /* ListGistsViewController.swift in Sources */,
+				7160C7911F8FA62800506FE1 /* ListGistsRouter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7160C7651F8FA4F300506FE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7160C76E1F8FA4F300506FE1 /* GisterTests.swift in Sources */,
+				7160C7A51F90017D00506FE1 /* GistAPITest.swift in Sources */,
+				71D5A6C01F9AC1F500BFA7A7 /* Seeds.swift in Sources */,
+				7160C79D1F8FA68800506FE1 /* ListGistsWorkerTests.swift in Sources */,
+				7160C79C1F8FA68800506FE1 /* ListGistsViewControllerTests.swift in Sources */,
+				7160C79A1F8FA68800506FE1 /* ListGistsInteractorTests.swift in Sources */,
+				7160C79B1F8FA68800506FE1 /* ListGistsPresenterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7160C7701F8FA4F300506FE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7160C7791F8FA4F300506FE1 /* GisterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7160C76B1F8FA4F300506FE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7160C7511F8FA4F300506FE1 /* Gister */;
+			targetProxy = 7160C76A1F8FA4F300506FE1 /* PBXContainerItemProxy */;
+		};
+		7160C7761F8FA4F300506FE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7160C7511F8FA4F300506FE1 /* Gister */;
+			targetProxy = 7160C7751F8FA4F300506FE1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7160C7591F8FA4F300506FE1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7160C75A1F8FA4F300506FE1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7160C7611F8FA4F300506FE1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7160C7621F8FA4F300506FE1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7160C77B1F8FA4F300506FE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7160C77C1F8FA4F300506FE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7160C77E1F8FA4F300506FE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5LBZDN8XB8;
+				INFOPLIST_FILE = Gister/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clean-swift.Gister";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7160C77F1F8FA4F300506FE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5LBZDN8XB8;
+				INFOPLIST_FILE = Gister/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clean-swift.Gister";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		7160C7811F8FA4F300506FE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5LBZDN8XB8;
+				INFOPLIST_FILE = GisterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clean-swift.GisterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gister.app/Gister";
+			};
+			name = Debug;
+		};
+		7160C7821F8FA4F300506FE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5LBZDN8XB8;
+				INFOPLIST_FILE = GisterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clean-swift.GisterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gister.app/Gister";
+			};
+			name = Release;
+		};
+		7160C7841F8FA4F300506FE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 5LBZDN8XB8;
+				INFOPLIST_FILE = GisterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clean-swift.GisterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Gister;
+			};
+			name = Debug;
+		};
+		7160C7851F8FA4F300506FE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 5LBZDN8XB8;
+				INFOPLIST_FILE = GisterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clean-swift.GisterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Gister;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7160C74D1F8FA4F300506FE1 /* Build configuration list for PBXProject "Gister" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7160C77B1F8FA4F300506FE1 /* Debug */,
+				7160C77C1F8FA4F300506FE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7160C77D1F8FA4F300506FE1 /* Build configuration list for PBXNativeTarget "Gister" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7160C77E1F8FA4F300506FE1 /* Debug */,
+				7160C77F1F8FA4F300506FE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7160C7801F8FA4F300506FE1 /* Build configuration list for PBXNativeTarget "GisterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7160C7811F8FA4F300506FE1 /* Debug */,
+				7160C7821F8FA4F300506FE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7160C7831F8FA4F300506FE1 /* Build configuration list for PBXNativeTarget "GisterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7160C7841F8FA4F300506FE1 /* Debug */,
+				7160C7851F8FA4F300506FE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7160C75C1F8FA4F300506FE1 /* Gister.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7160C75D1F8FA4F300506FE1 /* Gister.xcdatamodel */,
+			);
+			currentVersion = 7160C75D1F8FA4F300506FE1 /* Gister.xcdatamodel */;
+			path = Gister.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7160C74A1F8FA4F300506FE1 /* Project object */;
+}
