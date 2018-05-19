@@ -27,14 +27,14 @@ enum ListGists
     }
     struct ViewModel
     {
-      struct DisplayedGists
+      struct DisplayedGist
       {
         var login: String
         var url: String
         var filename: String
         var filetype: String
       }
-      var displayedGists: [DisplayedGists]
+      var displayedGists: [DisplayedGist]
     }
   }
 }

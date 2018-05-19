@@ -12,14 +12,35 @@
 
 import UIKit
 
-class ListGistsWorker
+protocol ListGistsWorkerDelegate
+{
+  func listGistsWorker(listGistsWorker: ListGistsWorker, didFetchGists gists: [Gist])
+}
+
+class ListGistsWorker: GistAPIDelegate
 {
   var gistAPI: GistAPIProtocol = GistAPI()
+  var delegate: ListGistsWorkerDelegate?
+  
+  // MARK: Block implementation
   
   func fetch(completionHandler: @escaping ([Gist]) -> Void)
   {
     gistAPI.fetch { (gists) in
       completionHandler(gists)
     }
+  }
+  
+  // MARK: Delegate implementation
+  
+  func fetch()
+  {
+    gistAPI.delegate = self
+    gistAPI.fetch()
+  }
+  
+  func gistAPI(gistAPI: GistAPIProtocol, didFetchGists gists: [Gist])
+  {
+    delegate?.listGistsWorker(listGistsWorker: self, didFetchGists: gists)
   }
 }

@@ -34,3 +34,22 @@ extension Gist: Hashable
     return login.hashValue
   }
 }
+
+extension ListGists.FetchGists.ViewModel.DisplayedGist: Equatable
+{
+  static func ==(lhs: ListGists.FetchGists.ViewModel.DisplayedGist, rhs: ListGists.FetchGists.ViewModel.DisplayedGist) -> Bool
+  {
+    return lhs.login == rhs.login &&
+      lhs.url == rhs.url &&
+      lhs.filename == rhs.filename &&
+      lhs.filetype == rhs.filetype
+  }
+}
+
+extension ListGists.FetchGists.ViewModel.DisplayedGist: Hashable
+{
+  var hashValue: Int
+  {
+    return login.hashValue
+  }
+}

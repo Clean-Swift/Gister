@@ -91,19 +91,35 @@ class ListGistsViewControllerTests: XCTestCase
     XCTAssertTrue(listGistsBusinessLogicSpy.fetchGistsCalled, "viewDidLoad() should ask the interactor to fetch gists")
   }
   
-  func testDisplayFetchedGistsReloadTableView()
+  func testShouldFetchGistsWhenRefreshButtonIsTapped()
+  {
+    // Given
+    let listGistsBusinessLogicSpy = ListGistsBusinessLogicSpy()
+    sut.interactor = listGistsBusinessLogicSpy
+    loadView()
+    
+    // When
+    sut.refreshButtonTapped(sut)
+    
+    // Then
+    XCTAssertTrue(listGistsBusinessLogicSpy.fetchGistsCalled, "viewDidLoad() should ask the interactor to fetch gists")
+  }
+  
+  func testDisplayFetchedGistsShouldReloadTableView()
   {
     // Given
     let tableViewSpy = TableViewSpy()
     sut.tableView = tableViewSpy
-    let displayedGists = [Seeds.DisplayedGists.text, Seeds.DisplayedGists.html]
-    let viewModel = ListGists.FetchGists.ViewModel(displayedGists: displayedGists)
+    loadView()
     
     // When
-    loadView()
+    let expectedGists = [Seeds.DisplayedGists.text, Seeds.DisplayedGists.html]
+    let viewModel = ListGists.FetchGists.ViewModel(displayedGists: expectedGists)
     sut.displayFetchedGists(viewModel: viewModel)
     
     // Then
+    let actualGists = sut.displayedGists
+    XCTAssertEqual(actualGists, expectedGists, "displayFetchedGists(viewModel:) should display the gists results")
     XCTAssert(tableViewSpy.reloadDataCalled, "displayFetchedGists(viewModel:) should reload the table view")
   }
 }

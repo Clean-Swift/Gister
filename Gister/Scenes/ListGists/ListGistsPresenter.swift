@@ -30,8 +30,8 @@ class ListGistsPresenter: ListGistsPresentationLogic
     viewController?.displayFetchedGists(viewModel: viewModel)
   }
   
-  private func convertGists(gists: [Gist]) -> [ListGists.FetchGists.ViewModel.DisplayedGists]
+  private func convertGists(gists: [Gist]) -> [ListGists.FetchGists.ViewModel.DisplayedGist]
   {
-    return gists.map { ListGists.FetchGists.ViewModel.DisplayedGists(login: $0.login, url: $0.url, filename: $0.filename, filetype: $0.filetype) }
+    return gists.map { ListGists.FetchGists.ViewModel.DisplayedGist(login: $0.login, url: $0.url, filename: $0.filename, filetype: $0.filetype) }
   }
 }

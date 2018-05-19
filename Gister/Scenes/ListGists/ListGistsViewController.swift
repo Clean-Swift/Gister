@@ -93,7 +93,7 @@ class ListGistsViewController: UITableViewController, ListGistsDisplayLogic
   
   // MARK: Fetch Gists
   
-  var displayedGists: [ListGists.FetchGists.ViewModel.DisplayedGists] = []
+  var displayedGists: [ListGists.FetchGists.ViewModel.DisplayedGist] = []
   
   @IBAction func refreshButtonTapped(_ sender: Any)
   {

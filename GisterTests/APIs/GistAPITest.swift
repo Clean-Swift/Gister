@@ -23,15 +23,34 @@ class URLSessionSpy: URLSession
     completionHandler(data, nil, nil)
     return dataTask
   }
+  
+  override func dataTask(with url: URL) -> URLSessionDataTask
+  {
+    dataTaskWithURLCalled = true
+    return dataTask
+  }
 }
 
 class URLSessionDataTaskSpy: URLSessionDataTask
 {
   var resumeCalled = false
+  override var taskIdentifier: Int { return 0 }
   
   override func resume()
   {
     resumeCalled = true
+  }
+}
+
+class GistAPIDelegateSpy: GistAPIDelegate
+{
+  var gistAPIDidFetchGistsCalled = false
+  var gistAPIDidFetchGistsResults: [Gist]?
+  
+  func gistAPI(gistAPI: GistAPIProtocol, didFetchGists gists: [Gist])
+  {
+    gistAPIDidFetchGistsCalled = true
+    gistAPIDidFetchGistsResults = gists
   }
 }
 
@@ -63,7 +82,9 @@ class GistAPITest: XCTestCase
   
   // MARK: Tests
   
-  func testFetchShouldAskURLSessionToFetchGistsFromGitHub()
+  // MARK: - Block implementation
+  
+  func testFetchShouldAskURLSessionToFetchGistsFromGitHubWithBlock()
   {
     // Given
     let sessionSpy = URLSessionSpy()
@@ -121,5 +142,61 @@ class GistAPITest: XCTestCase
     // Then
     let expectedGists = [Gist]()
     XCTAssertEqual(actualGists!, expectedGists, "fetch(completionHandler:) should return an empty array if the fetch fails")
+  }
+  
+  // MARK: - Delegate implementation
+  
+  func testFetchShouldAskURLSessionToFetchGistsFromGitHubWithDelegate()
+  {
+    // Given
+    let sessionSpy = URLSessionSpy()
+    sut.session = sessionSpy
+    
+    // When
+    sut.fetch()
+    
+    // Then
+    XCTAssertTrue(sessionSpy.dataTaskWithURLCalled, "fetch(completionHandler:) should ask URLSession to fetch gists from GitHub")
+    XCTAssertTrue(sessionSpy.dataTask.resumeCalled, "fetch(completionHandler:) should start the data task")
+  }
+  
+  func testURLSessionTaskDidCompleteWithErrorShouldNotifyDelegateWithGistsResults()
+  {
+    // Given
+    let sessionSpy = URLSessionSpy()
+    sut.session = sessionSpy
+    let gistAPIDelegateSpy = GistAPIDelegateSpy()
+    sut.delegate = gistAPIDelegateSpy
+    let dataTaskSpy = URLSessionDataTaskSpy()
+    let key = String(dataTaskSpy.taskIdentifier)
+    sut.results = [key: NSMutableData(data: Seeds.JSON.data)]
+    
+    // When
+    sut.urlSession(sessionSpy, task: dataTaskSpy, didCompleteWithError: nil)
+    
+    // Then
+    let actualGists = gistAPIDelegateSpy.gistAPIDidFetchGistsResults!
+    let expectedGists = [Seeds.Gists.text, Seeds.Gists.html]
+    XCTAssertTrue(gistAPIDelegateSpy.gistAPIDidFetchGistsCalled, "urlSession(_:task:didCompleteWithError:) should notify the delegate")
+    XCTAssertEqual(actualGists, expectedGists, "urlSession(_:task:didCompleteWithError:) should return the correct gists results")
+  }
+  
+  func testURLSessionTaskDidCompleteWithErrorShouldFailGracefully()
+  {
+    // Given
+    let sessionSpy = URLSessionSpy()
+    sut.session = sessionSpy
+    let gistAPIDelegateSpy = GistAPIDelegateSpy()
+    sut.delegate = gistAPIDelegateSpy
+    let dataTaskSpy = URLSessionDataTaskSpy()
+    let error: Error? = NSError(domain: "GisterAPI", code: 911, userInfo: ["Unit Test" : "No harm done."])
+
+    // When
+    sut.urlSession(sessionSpy, task: dataTaskSpy, didCompleteWithError: error)
+    
+    // Then
+    let actualGists = gistAPIDelegateSpy.gistAPIDidFetchGistsResults!
+    XCTAssertTrue(gistAPIDelegateSpy.gistAPIDidFetchGistsCalled, "urlSession(_:task:didCompleteWithError:) should notify the delegate")
+    XCTAssertTrue(actualGists.isEmpty, "urlSession(_:task:didCompleteWithError:) should return empty results")
   }
 }

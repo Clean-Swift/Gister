@@ -21,18 +21,38 @@ protocol ListGistsDataStore
 {
 }
 
-class ListGistsInteractor: ListGistsBusinessLogic, ListGistsDataStore
+class ListGistsInteractor: ListGistsBusinessLogic, ListGistsDataStore, ListGistsWorkerDelegate
 {
   var presenter: ListGistsPresentationLogic?
   var listGistsWorker = ListGistsWorker()
+  
+  enum AsyncOpKind {
+    case block, delegate
+  }
+  var asyncOpKind = AsyncOpKind.block
   
   // MARK: Fetch Gists
   
   func fetchGists(request: ListGists.FetchGists.Request)
   {
-    listGistsWorker.fetch { (gists) in
-      let response = ListGists.FetchGists.Response(gists: gists)
-      self.presenter?.presentFetchedGists(response: response)
+    switch asyncOpKind
+    {
+    case .block:
+      // MARK: Block implementation
+      listGistsWorker.fetch { (gists) in
+        let response = ListGists.FetchGists.Response(gists: gists)
+        self.presenter?.presentFetchedGists(response: response)
+      }
+    case .delegate:
+      // MARK: Delegate method implementation
+      listGistsWorker.delegate = self
+      listGistsWorker.fetch()
     }
+  }
+  
+  func listGistsWorker(listGistsWorker: ListGistsWorker, didFetchGists gists: [Gist])
+  {
+    let response = ListGists.FetchGists.Response(gists: gists)
+    presenter?.presentFetchedGists(response: response)
   }
 }

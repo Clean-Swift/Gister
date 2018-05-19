@@ -44,10 +44,12 @@ class ListGistsPresenterTests: XCTestCase
   class ListGistsDisplayLogicSpy: ListGistsDisplayLogic
   {
     var displayFetchedGistsCalled = false
+    var displayFetchedGistsViewModel: ListGists.FetchGists.ViewModel!
     
     func displayFetchedGists(viewModel: ListGists.FetchGists.ViewModel)
     {
       displayFetchedGistsCalled = true
+      displayFetchedGistsViewModel = viewModel
     }
   }
   
@@ -58,13 +60,16 @@ class ListGistsPresenterTests: XCTestCase
     // Given
     let listGistsDisplayLogicSpy = ListGistsDisplayLogicSpy()
     sut.viewController = listGistsDisplayLogicSpy
-    let gists = [Seeds.Gists.text, Seeds.Gists.html]
-    let response = ListGists.FetchGists.Response(gists: gists)
     
     // When
+    let gists = [Seeds.Gists.text, Seeds.Gists.html]
+    let response = ListGists.FetchGists.Response(gists: gists)
     sut.presentFetchedGists(response: response)
     
     // Then
+    let expectedGists = [Seeds.DisplayedGists.text, Seeds.DisplayedGists.html]
+    let actualGists = listGistsDisplayLogicSpy.displayFetchedGistsViewModel.displayedGists
     XCTAssertTrue(listGistsDisplayLogicSpy.displayFetchedGistsCalled, "presentFetchedGists(response:) should ask the view controller to display gists")
+    XCTAssertEqual(actualGists, expectedGists, "presentFetchedGists(response:) should display the correct gists")
   }
 }

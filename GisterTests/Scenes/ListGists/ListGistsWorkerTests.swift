@@ -43,17 +43,43 @@ class ListGistsWorkerTests: XCTestCase
   
   class GistAPISpy: GistAPIProtocol
   {
-    var fetchCalled = false
+    let gists = [Seeds.Gists.text, Seeds.Gists.html]
+    
+    var fetchWithCompletionHandlerCalled = false
+    var fetchWithDelegateCalled = false
+    var delegate: GistAPIDelegate?
     
     func fetch(completionHandler: @escaping ([Gist]) -> Void)
     {
-      fetchCalled = true
+      fetchWithCompletionHandlerCalled = true
+      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+        completionHandler(self.gists)
+      }
+    }
+    
+    func fetch()
+    {
+      fetchWithDelegateCalled = true
+    }
+  }
+  
+  class ListGistsWorkerDelegateSpy: ListGistsWorkerDelegate
+  {
+    var listGistsWorkerDidFetchGistsCalled = false
+    var listGistsWorkerDidFetchGistsResults = [Gist]()
+    
+    func listGistsWorker(listGistsWorker: ListGistsWorker, didFetchGists gists: [Gist])
+    {
+      listGistsWorkerDidFetchGistsCalled = true
+      listGistsWorkerDidFetchGistsResults = gists
     }
   }
   
   // MARK: Tests
   
-  func testFetchShouldAskGistAPIToFetchGists()
+  // MARK: Block implementation
+  
+  func testFetchShouldAskGistAPIToFetchGistsWithBlock()
   {
     // Given
     let gistAPISpy = GistAPISpy()
@@ -63,6 +89,60 @@ class ListGistsWorkerTests: XCTestCase
     sut.fetch { (gists) in }
     
     // Then
-    XCTAssertTrue(gistAPISpy.fetchCalled, "fetch(completionHandler:) should ask Gist API to fetch gists")
+    XCTAssertTrue(gistAPISpy.fetchWithCompletionHandlerCalled, "fetch(completionHandler:) should ask Gist API to fetch gists")
+  }
+  
+  func testFetchShouldReturnGistsResultsToBlock()
+  {
+    // Given
+    let gistAPISpy = GistAPISpy()
+    sut.gistAPI = gistAPISpy
+    
+    // When
+    var actualGists: [Gist]?
+    let fetchCompleted = expectation(description: "Wait for fetch to complete")
+    sut.fetch { (gists) in
+      actualGists = gists
+      fetchCompleted.fulfill()
+    }
+    waitForExpectations(timeout: 5.0, handler: nil)
+    
+    // Then
+    let expectedGists = gistAPISpy.gists
+    XCTAssertEqual(actualGists!, expectedGists, "fetch(completionHandler:) should return an array of gists to completion block if the fetch succeeds")
+  }
+  
+  // MARK: Delegate implementation
+  
+  func testFetchShouldAskGistAPIToFetchGistsWithDelegate()
+  {
+    // Given
+    let gistAPISpy = GistAPISpy()
+    sut.gistAPI = gistAPISpy
+    
+    // When
+    sut.fetch()
+    
+    // Then
+    XCTAssertTrue(gistAPISpy.fetchWithDelegateCalled, "fetch(completionHandler:) should ask Gist API to fetch gists")
+  }
+  
+  func testGistAPIDidFetchGistsShouldNotifyDelegateWithGistsResults()
+  {
+    // Given
+    let gistAPISpy = GistAPISpy()
+    sut.gistAPI = gistAPISpy
+    let listGistsWorkerDelegateSpy = ListGistsWorkerDelegateSpy()
+    sut.delegate = listGistsWorkerDelegateSpy
+    
+    // When
+    let gists = [Seeds.Gists.text, Seeds.Gists.html]
+    sut.gistAPI(gistAPI: gistAPISpy, didFetchGists: gists)
+    
+    // Then
+    let expectedGists = gistAPISpy.gists
+    let actualGists = listGistsWorkerDelegateSpy.listGistsWorkerDidFetchGistsResults
+    XCTAssertTrue(listGistsWorkerDelegateSpy.listGistsWorkerDidFetchGistsCalled, "fetch(completionHandler:) should notify its delegate")
+    XCTAssertEqual(actualGists, expectedGists, "fetch(completionHandler:) should return an array of gists if the fetch succeeds")
   }
 }

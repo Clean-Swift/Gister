@@ -19,8 +19,8 @@ struct Seeds
   
   struct DisplayedGists
   {
-    static let text = ListGists.FetchGists.ViewModel.DisplayedGists(login: Gists.text.login, url: Gists.text.url, filename: Gists.text.filename, filetype: Gists.text.filetype)
-    static let html = ListGists.FetchGists.ViewModel.DisplayedGists(login: Gists.html.login, url: Gists.html.url, filename: Gists.html.filename, filetype: Gists.html.filetype)
+    static let text = ListGists.FetchGists.ViewModel.DisplayedGist(login: Gists.text.login, url: Gists.text.url, filename: Gists.text.filename, filetype: Gists.text.filetype)
+    static let html = ListGists.FetchGists.ViewModel.DisplayedGist(login: Gists.html.login, url: Gists.html.url, filename: Gists.html.filename, filetype: Gists.html.filetype)
   }
   
   struct JSON {

@@ -43,13 +43,21 @@ class ListGistsInteractorTests: XCTestCase
   
   class ListGistsWorkerSpy: ListGistsWorker
   {
-    var fetchCalled = false
+    let gists = [Seeds.Gists.text, Seeds.Gists.html]
+    
+    var fetchWithCompletionHandlerCalled = false
+    var fetchWithDelegateCalled = false
     
     override func fetch(completionHandler: @escaping ([Gist]) -> Void)
     {
-      let gists = [Seeds.Gists.text, Seeds.Gists.html]
-      fetchCalled = true
+      fetchWithCompletionHandlerCalled = true
       completionHandler(gists)
+    }
+    
+    override func fetch()
+    {
+      fetchWithDelegateCalled = true
+      delegate?.listGistsWorker(listGistsWorker: self, didFetchGists: gists)
     }
   }
   
@@ -65,18 +73,22 @@ class ListGistsInteractorTests: XCTestCase
   
   // MARK: Tests
   
-  func testFetchGistsShouldAskWorkerToFetchGists()
+  // MARK: Block implementation
+  
+  func testFetchGistsShouldAskWorkerToFetchGistsWithBlock()
   {
+    guard sut.asyncOpKind == .block else { return }
+    
     // Given
     let listGistsWorkerSpy = ListGistsWorkerSpy()
     sut.listGistsWorker = listGistsWorkerSpy
-    let request = ListGists.FetchGists.Request()
     
     // When
+    let request = ListGists.FetchGists.Request()
     sut.fetchGists(request: request)
     
     // Then
-    XCTAssertTrue(listGistsWorkerSpy.fetchCalled, "fetchGists(request:) should ask the worker to fetch gists")
+    XCTAssertTrue(listGistsWorkerSpy.fetchWithCompletionHandlerCalled, "fetchGists(request:) should ask the worker to fetch gists")
   }
   
   func testFetchGistsShouldAskPresenterToFormatGists()
@@ -86,12 +98,46 @@ class ListGistsInteractorTests: XCTestCase
     sut.listGistsWorker = listGistsWorkerSpy
     let listGistsPresentationLogicSpy = ListGistsPresentationLogicSpy()
     sut.presenter = listGistsPresentationLogicSpy
-    let request = ListGists.FetchGists.Request()
     
     // When
+    let request = ListGists.FetchGists.Request()
     sut.fetchGists(request: request)
     
     // Then
     XCTAssertTrue(listGistsPresentationLogicSpy.presentFetchedGistsCalled, "fetchGists(request:) should ask the presenter to format gists")
+  }
+  
+  // MARK: Delegate implementation
+  
+  func testFetchGistsShouldAskWorkerToFetchGistsWithDelegate()
+  {
+    guard sut.asyncOpKind == .delegate else { return }
+    
+    // Given
+    let listGistsWorkerSpy = ListGistsWorkerSpy()
+    sut.listGistsWorker = listGistsWorkerSpy
+    
+    // When
+    let request = ListGists.FetchGists.Request()
+    sut.fetchGists(request: request)
+    
+    // Then
+    XCTAssertTrue(listGistsWorkerSpy.fetchWithDelegateCalled, "fetchGists(request:) should ask the worker to fetch gists")
+    XCTAssertNotNil(sut.listGistsWorker.delegate, "fetchGists(request:) should set itself to be the delegate to be notified of fetch results")
+  }
+  
+  func testListGistsWorkerDidFetchGistsShouldAskPresenterToFormatGists()
+  {
+    // Given
+    let listGistsWorkerSpy = ListGistsWorkerSpy()
+    sut.listGistsWorker = listGistsWorkerSpy
+    let listGistsPresentationLogicSpy = ListGistsPresentationLogicSpy()
+    sut.presenter = listGistsPresentationLogicSpy
+    
+    // When
+    sut.listGistsWorker(listGistsWorker: listGistsWorkerSpy, didFetchGists: listGistsWorkerSpy.gists)
+    
+    // Then
+    XCTAssertTrue(listGistsPresentationLogicSpy.presentFetchedGistsCalled, "listGistsWorker(listGistsWorker:didFetchGists:) should ask the presenter to format gists")
   }
 }
